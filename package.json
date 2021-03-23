@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/PhongVX/BasicJavascript/issues"
   },
-  "homepage": "https://github.com/PhongVX/BasicJavascript#readme"
+  "homepage": "https://github.com/PhongVX/BasicJavascript#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
