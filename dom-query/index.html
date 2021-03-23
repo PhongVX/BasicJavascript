@@ -7,15 +7,30 @@
     <title>Dom Query</title>
 </head>
 <body>
-    <form onsubmit="submitForm(e)">
-        <input type="text" placeholder='First Name' id="firstName"/>
-        <input type="text" placeholder='Last Name' id="lastName"/>    
-        <button type="submit">Submit</button>
-    </form>
+    
+    <input type="text" placeholder="Task Name" id="task"/>
+    <button onclick="addTask()">Add Task</button>
+    <button onclick="clearAll()">Clear All</button>
+    <div id="result">
+        
+    </div>
+    
     <script>
-        function submitForm(e){
-            e.preventDefault();
-            console.log(e);
+        let arrayTask = []
+        function addTask(){ 
+            const taskName = document.getElementById('task').value;
+            arrayTask.push(taskName);
+            renderResult();
+        }
+        function renderResult(){ 
+            let html = []
+            arrayTask.forEach(function(taskName){
+                html.push(`<h5>${taskName}</h5>`)
+            });
+            document.getElementById('result').innerHTML = html.join('');
+        }
+        function clearAll(){
+            document.getElementById('result').innerHTML = '';
         }
     </script>
 </body>
