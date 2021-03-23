@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Variables</title>
+</head>
+<body>
+    <script>
+        function doSomething(){ 
+            const MAX = 100;
+            if (MAX === 100){ 
+                var testVar = MAX;
+                let testLet = MAX ;
+                console.log('Test Var Inside:', testVar);
+                console.log('Test Let Inside:', testLet);
+            }
+            console.log('Test Var:', testVar);
+            console.log('Test Let:', testLet);
+        }
+        doSomething()
+    </script>
+</body>
+</html>
