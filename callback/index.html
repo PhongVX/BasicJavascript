@@ -1,0 +1,14 @@
+<script>
+    function plus(a, b, callback){
+        const result = a + b;
+        callback(result);
+    }
+    function printValue(value){
+        console.log(value);
+    }
+    function alertValue(value){
+        alert(value);
+    }
+    // plus(2, 2, printValue)
+    plus(2, 2, alertValue)
+</script>
