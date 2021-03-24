@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax Call</title>
+</head>
+
+<body>
+    <button onclick="getUsers()">Get Users XMLHttpRequest</button>
+    <button onclick="getUsersWithFetch()">Get Users Fetch</button>
+    <button onclick="getUserjQueryAjax()">Get Users jQuery AJAX</button>
+    <br/>
+    <br/>
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+            </thead>
+            <tbody id="users-table-body">
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const API_URL = 'http://localhost:3333/users'
+        function getUsers() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    const users = JSON.parse(this.responseText).result;
+                    renderUser(users);
+                }
+            };
+            xhttp.open("GET", API_URL, true);
+            xhttp.send();
+        }
+        function renderUser(users) {
+            const htmlResult = users.map((u) => {
+                return `<tr>
+                    <td>${u.id}</td>  
+                    <td>${u.firstName}</td> 
+                    <td>${u.lastName}</td>   
+                </tr>`
+            });
+            document.getElementById("users-table-body").innerHTML = htmlResult.join('');
+        }
+
+        function getUsersWithFetch() {
+            fetch(API_URL)
+                .then(response => response.json())
+                .then(response => renderUser(response.result))
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+        function getUserjQueryAjax() {
+            $.ajax({
+                method: 'GET',
+                url: API_URL,
+                success: (res) => {
+                    renderUser(res.result);
+                },
+                error: (err) => { 
+                    console.log(err);
+                }
+            });
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+</body>
+</html>
