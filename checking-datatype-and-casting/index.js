@@ -45,3 +45,11 @@ console.log(array.join('-'))
 
 let testString = 'xin-chao-ban'
 console.log(testString.split('-'))
+
+var myObj = {name: "John", age: 31, city: "New York"};
+var myJSON = JSON.stringify(myObj);
+console.log(typeof myJSON)
+
+var myJSONString = '{"name":"John", "age":31, "city":"New York"}';
+var myObj = JSON.parse(myJSONString);
+console.log(typeof myObj)
