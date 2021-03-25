@@ -12,4 +12,12 @@ router.get('/:userId/skills', (req, res) => {
     res.json({result: userSkills});
 });
 
+router.post('/', (req, res) => {
+    const body = req.body;
+    console.log(body);
+    const newUser = {id: new Date().getTime(), firstName: body.firstName, lastName: body.lastName, sex: body.sex };
+    users.push(newUser);
+    res.json({result: newUser});
+});
+
 module.exports = router;

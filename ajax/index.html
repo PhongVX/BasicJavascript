@@ -12,6 +12,7 @@
     <button onclick="getUsers()">Get Users XMLHttpRequest</button>
     <button onclick="getUsersWithFetch()">Get Users Fetch</button>
     <button onclick="getUserjQueryAjax()">Get Users jQuery AJAX</button>
+    <button onclick="createUserjQueryAjax()">Insert User Test</button>
     <br/>
     <br/>
     <div>
@@ -66,6 +67,20 @@
                 url: API_URL,
                 success: (res) => {
                     renderUser(res.result);
+                },
+                error: (err) => { 
+                    console.log(err);
+                }
+            });
+        }
+        function createUserjQueryAjax(){
+            $.ajax({
+                method: 'POST',
+                url: API_URL,
+                data: JSON.stringify({firstName:'Phong', lastName:'Vo', sex: true}),
+                contentType: 'application/json',
+                success: (res) => {
+                    console.log('User created:', res.result);
                 },
                 error: (err) => { 
                     console.log(err);

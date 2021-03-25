@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require('cors');
+var bodyParser = require('body-parser')
 
 const userRoute = require('./routes/users');
 
@@ -7,6 +8,10 @@ const PORT = 3333;
 const server = express();
 
 server.use(cors());
+// parse application/x-www-form-urlencoded
+server.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+server.use(bodyParser.json())
 
 server.use('/users', userRoute)
 

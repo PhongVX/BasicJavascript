@@ -1,5 +1,5 @@
 
-const users = [
+let users = [
     {
         id: 1001,
         firstName: 'John',
@@ -21,7 +21,7 @@ const users = [
 ];
 
 
-const skills = [
+let skills = [
     {
         id: 1,
         skillName: 'Golang',
