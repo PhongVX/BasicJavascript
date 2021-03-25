@@ -8,7 +8,31 @@
 </head>
 <body>
 
-    <button onclick="alert('Hello World')">Say Hello</button>
- 
+    <button onclick="alert('Hello World')">Say Hello</button><br/><br/>
+
+    OnChange: <input onchange="inputChange(this.value)" />   <p>Value Input <span id="resultValueInput"></span></p>
+    OnKeyPress:<input id="inputKeyPress" onkeypress="onKeyPressInput(event)" /><br/><br/>
+    
+    <div onmouseout="onMouseOut(this)" onmouseover="onMouseOver(this)" style="background-color:red; width: 50px; height:50px">
+
+    </div>
+    <script>
+        function inputChange(value){ 
+            document.getElementById("resultValueInput").innerText = value;
+        }
+        function onKeyPressInput(event){
+            if (event.keyCode === 13) { 
+                alert(document.getElementById('inputKeyPress').value);
+            }
+        }
+        function onMouseOver(thiz){
+            thiz.style.backgroundColor = 'yellow';
+        }
+        function onMouseOut(thiz){ 
+            thiz.style.backgroundColor = 'red';
+        }
+        // Difference behavior between onkeypress, on keydown and onkeyup
+        // https://jsfiddle.net/zG9MF/2/ 
+    </script>
 </body>
 </html>
