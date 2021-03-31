@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Work</title>
+</head>
+<style>
+    body{
+        margin:0;
+        padding:0;
+        cursor: pointer;
+    }
+    #header{
+        background-color: mediumspringgreen;
+        height: 20vh;
+    }
+    #body-content{
+        height: 60vh;
+        display: flex;
+    }
+    #body-left-side{
+        width: 20%;
+        height: 60vh;
+    }
+    #body-right-side{
+        width: 80%;
+        background-color: limegreen;
+        height: 61vh;
+        margin: 5px 0px 0px 0px;
+    }
+    #body-left-sidebar{
+        background-color: orange;
+        height: 30vh;
+        margin: 5px 5px 5px 0px;
+    }
+    #body-left-advert{
+        background-color: royalblue;
+        margin: 5px 5px 5px 0px;
+        height: 30vh;
+    }
+    #footer{
+        background-color: blueviolet;
+        height: 18vh;
+        margin-top: 15px;
+    }
+    .center{
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+</style>
+
+<body>
+    <div onclick='onChangeColor(this)' id='header' class='center'>
+        <h2>Header</h2>
+    </div>
+    <div id='body-content'>
+        <div id='body-left-side'>
+            <div onclick='onChangeColor(this)' id='body-left-sidebar' class='center'>
+                <h2>Sidebar</h2>
+            </div>
+            <div onclick='onChangeColor(this)' id='body-left-advert' class='center'>
+                <h2>Advert</h2>
+            </div>
+        </div>
+        <div onclick='onChangeColor(this)' id='body-right-side' class='center'>
+            <h2>Content</h2>
+        </div>
+    </div>
+    <div onclick='onChangeColor(this)' id='footer' class='center'>
+        <h2>Footer</h2>
+    </div>
+    <script>
+        function getRandomColor(){
+            return fetch('https://simple-web-service-with-node.herokuapp.com/colors/random')
+            .then(res => res.json())
+        }
+        function onChangeColor(thiz){
+            getRandomColor().then(res => thiz.style.backgroundColor = `${res.result}`);
+        }
+    </script>
+</body>
+
+</html>
