@@ -21,3 +21,12 @@ server.listen(PORT, err => {
     if (err) throw err;
     console.log(`> Ready on ${PORT}`);
 });
+
+
+// function authorizationMiddleWare(req, res, next){ 
+//     if (req.headers.authorization) { 
+//         next();
+//     } else { 
+//         res.status(401).json({message: 'Unauthorized'});
+//     }
+//}

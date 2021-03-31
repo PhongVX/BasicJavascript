@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { users, skills } = require('../data');
 
+
 router.get('/', (req, res) => { 
     res.json({result: users});
 });
