@@ -51,3 +51,21 @@ getUsersAndSkills().then(result => console.log(JSON.stringify(result)))
 
 
 
+
+
+
+
+
+
+
+
+// async function promiseAll(){
+//   let helloPromise = new Promise((resolve, reject) => { 
+//     resolve('Hello')
+//   })
+//   let goodByePromise = new Promise((resolve, reject) => { 
+//     resolve('Good Bye')
+//   }) 
+//   let promises = [helloPromise, goodByePromise]
+//   Promise.all(promises).then(res => console.log(res))
+// }
